@@ -1,0 +1,71 @@
+<div *ngIf="step < 4; else showResults" class="form-container p-4">
+  <form
+    class="d-flex flex-column align-items-center"
+    [formGroup]="multistep"
+    (ngSubmit)="onSubmit()"
+  >
+    <h5 class="pb-4 mb-0">{{ questionTitle }}</h5>
+    <div class="form-group" *ngIf="step == 1">
+      <select
+        id="housingstatus"
+        class="form-select"
+        formControlName="housingStatus"
+      >
+        <option disabled>Choose Housing Status</option>
+        <option>Homeless/Living in a shelter</option>
+        <option>Homeowner</option>
+        <option>Living with family / friend</option>
+        <option>Renting</option>
+      </select>
+    </div>
+    <span
+      *ngIf="housingStatus?.errors?.required && submitted"
+      class="text-danger"
+      >Please Choose Status from the list
+    </span>
+
+    <div *ngIf="step == 2">
+      <select id="year" class="form-select" formControlName="year">
+        <option disabled>Choose Year of Birth</option>
+        <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+      </select>
+    </div>
+    <span
+      *ngIf="year?.errors?.required && submitted && step == 2"
+      class="text-danger"
+      >Please Choose Year of Birth
+    </span>
+
+    <div *ngIf="step == 3">
+      <select id="gender" class="form-select" formControlName="gender">
+        <option disabled>Choose Gender</option>
+        <option>Female</option>
+        <option>Male</option>
+      </select>
+    </div>
+    <span
+      *ngIf="gender?.errors?.required && submitted && step == 3"
+      class="text-danger"
+      >Please Choose Gender
+    </span>
+    <button
+      *ngIf="step != 3"
+      (click)="onNext()"
+      type="button"
+      class="btn btn-primary mt-4 px-5 center"
+    >
+      next
+    </button>
+    <button
+      *ngIf="step == 3"
+      type="submit"
+      class="btn btn-primary mt-4 px-5 center"
+    >
+      submit
+    </button>
+  </form>
+</div>
+<!-- SHOW RESULTS AFTER FORM SUBMITTED -->
+<ng-template #showResults>
+  <app-results [userChoices]="userChoices"></app-results>
+</ng-template>

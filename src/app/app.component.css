@@ -1,0 +1,29 @@
+h3 {
+  color: blue;
+}
+.container {
+  padding: 10px;
+  min-height: 100%;
+  margin: 0 auto -50px;
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.text-people-qualify {
+  text-align: center;
+  color: #0275d8;
+  font-weight: bold;
+}
+.logo {
+  width: 120px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.push {
+  height: 100px;
+}

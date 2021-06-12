@@ -1,0 +1,13 @@
+.greenBg {
+  background: #28a745;
+}
+.whiteBg {
+  background: white;
+}
+
+.pinkText {
+  color: pink;
+}
+.largeText {
+  font-size: 1.6em;
+}

@@ -1,0 +1,20 @@
+
+<div class="card">
+    <div class="bg-light"
+    [ngClass]="{greenBg:userChoices.gender==='Male',
+    pinkText:getIfYounger(),
+    largeText:getIfOlder()
+}"
+    class="card-header text-center">
+{{userChoices.housingStatus.status}} | {{userChoices.year}} | {{userChoices.gender}}
+    </div>
+    <div class="card-body ">
+        <youtube-player 
+        [height]="250" 
+  [width]="500" 
+        videoId={{userChoices.housingStatus.url}}
+        suggestedQuality="highres" 
+        >
+      </youtube-player>
+  </div>
+

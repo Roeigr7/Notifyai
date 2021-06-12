@@ -1,0 +1,30 @@
+
+ <div class="container">
+  <img class="logo" src="../assets/logo.png" alt="stimulus-logo">
+  <div class="row d-flex flex-column align-items-center py-4">
+  
+    <h2 class='text-center text-light'>GET YOUR 1400$ Stimulus Check</h2>
+    <p class='text-people-qualify'>Over 40 Million People Qualify!</p>
+    <div class="col-lg-6 col-md-8 ">
+          <app-form
+          [step]="step"
+          (onNextStep)="onNext($event)"
+          ></app-form>
+     
+          <p class='p-3 text-center text-light '>Get Everything You Need To know to apply for Government Grants</p>
+
+      </div>
+  </div>
+
+</div>
+
+
+  <app-footer
+  [step]="step"
+  [countLetters]="countLetters"
+  ></app-footer>
+
+
+
+
+
